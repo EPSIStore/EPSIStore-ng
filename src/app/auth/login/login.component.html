@@ -1,8 +1,17 @@
-<div>
-    <form (ngSubmit)="onSubmit()" class="login" action="#">
-        <input type="email" name="email" placeholder="Identifiant" [(ngModel)]="credentials.email" [ngModelOptions]="{standalone: true}" />
-        <input type="password" name="pwd" placeholder="Mot de passe" [(ngModel)]="credentials.pwd"[ngModelOptions]="{standalone: true}"/>
-        <button type="submit" class="button">connexion</button>
-    </form>
-</div>
+<div class="container">
+    <mat-card>
+      <form (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Identifiant</mat-label>
+          <input matInput type="email" name="email" placeholder="Identifiant" [(ngModel)]="credentials.email">
+        </mat-form-field>
   
+        <mat-form-field appearance="fill">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput type="password" name="pwd" placeholder="Mot de passe" [(ngModel)]="credentials.pwd">
+        </mat-form-field>
+  
+        <button  mat-raised-button color="primary" type="submit">Connexion</button>
+      </form>
+    </mat-card>
+  </div>
