@@ -1,0 +1,8 @@
+<div>
+    <form (ngSubmit)="onSubmit()" class="login" action="#">
+        <input type="email" name="email" placeholder="Identifiant" [(ngModel)]="credentials.email" [ngModelOptions]="{standalone: true}" />
+        <input type="password" name="pwd" placeholder="Mot de passe" [(ngModel)]="credentials.pwd"[ngModelOptions]="{standalone: true}"/>
+        <button type="submit" class="button">connexion</button>
+    </form>
+</div>
+  
