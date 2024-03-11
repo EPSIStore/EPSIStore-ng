@@ -8,19 +8,20 @@ import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-    declarations: [
-      AppComponent 
-      ],
-    imports: [
-      BrowserModule,
-      AuthModule,
-      HttpClientModule,
-      FormsModule,
-      PagesModule,
-      AppRoutingModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
-  })
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AuthModule,
+    HttpClientModule,
+    FormsModule,
+    PagesModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  exports: [
+  ],
+  bootstrap: [AppComponent]
+})
   export class AppModule { }
-  
