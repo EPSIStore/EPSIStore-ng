@@ -1,20 +1,22 @@
-<div class="main--container">
-  <nav class="navbar">
-    <div class="navbar--left">
-      <div class="logo"></div>
-      <a class="link" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Accueil</a>
-      <a class="link" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Boutique</a>
-      <a class="link" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a>
+<nav class="navbar">
+  <div class="main--container">
+    <div class="navbar-container">
+      <div class="navbar-container--left">
+        <div class="logo"></div>
+        <a class="link" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Accueil</a>
+        <a class="link" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Boutique</a>
+        <a class="link" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a>
+      </div>
+      <div class="navbar-container--right">
+        <input class="searchBar" type="text" placeholder="Rechercher un produit">
+        <a class="link" routerLink="/cart">
+          <fa-icon [icon]="faShoppingCart"></fa-icon>
+        </a>
+        <a class="link" routerLink="/login">
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+      </div>
     </div>
-    <div class="navbar--right">
-      <input type="text" placeholder="Rechercher un produit">
-      <a routerLink="/cart">
-        <fa-icon [icon]="faShoppingCart"></fa-icon>
-      </a>
-      <a routerLink="/login">
-        <fa-icon [icon]="faUser"></fa-icon>
-      </a>
-    </div>
-  </nav>
-</div>
+  </div>
+</nav>
 
