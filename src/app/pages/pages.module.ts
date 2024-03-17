@@ -5,7 +5,8 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShopComponent } from './shop/shop.component';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { ShopComponent } from './shop/shop.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatButtonModule,
+    MatMenuModule
   ]
 })
 export class PagesModule { }

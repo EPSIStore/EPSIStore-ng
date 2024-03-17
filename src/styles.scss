@@ -1,2 +1,72 @@
 @import 'variables';
 @import 'base';
+.mat-mdc-menu-panel {
+  margin: 8px 0 !important;
+}
+.mat-mdc-menu-content {
+  padding: 0 !important;
+  background-color: $color-white;
+  .mat-mdc-menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .mat-mdc-menu-item-text {
+      .icon-inline {
+        color: $color-grey;
+        font-size: $font-size-xl;
+
+        &--image {
+
+        }
+
+        &-group {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          &--name {
+            color: $color-grey;
+            font-size: $font-size-md;
+            font-weight: $font-weight-regular;
+
+          }
+          &--price {
+            color: $color-grey;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-bold;
+          }
+
+          &--number {
+            color: $color-grey;
+            font-size: $font-size-xxl;
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+
+    }
+  }
+  .button-cart--validate {
+    background-color: $color-purple;
+    border: none;
+    //border-radius: 4px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-weight: $font-weight-bold;
+      text-align: center;
+      color: $color-white;
+      font-size: $font-size-xl;
+
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $color-cyan !important;
+      transition: all 0.3s ease;
+    }
+  }
+
+}
