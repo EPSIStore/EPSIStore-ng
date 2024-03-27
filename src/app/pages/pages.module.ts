@@ -12,18 +12,11 @@ import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     HomeComponent,
-    NavbarComponent,
     ShopComponent
-  ],
-  exports: [
-    NavbarComponent
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule,
-    FontAwesomeModule,
-    MatButtonModule,
-    MatMenuModule
+    PagesRoutingModule
   ]
 })
 export class PagesModule { }
