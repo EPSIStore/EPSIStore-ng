@@ -1,0 +1,43 @@
+<nav class="navbar">
+  <div class="main--container">
+    <div class="navbar-container">
+      <div class="navbar-container--left">
+        <div class="logo"></div>
+        <a class="link" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Accueil</a>
+        <a class="link" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Boutique</a>
+        <a class="link" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a>
+      </div>
+      <div class="navbar-container--right">
+        <input class="searchBar" type="text" placeholder="Rechercher un produit">
+        <button class="button-cart" mat-flat-button [matMenuTriggerFor]="menu"><fa-icon [icon]="faShoppingCart"></fa-icon></button>
+        <mat-menu #menu="matMenu" class="menu-items">
+          <div mat-menu-item>
+            <div class="icon-inline">
+              <div class="icon-inline--image"></div>
+              <div class="icon-inline-group">
+                <div class="icon-inline-group--number">1</div>
+                <div class="icon-inline-group--name">Nom du produit</div>
+                <div class="icon-inline-group--price">9.99€</div>
+              </div>
+            </div>
+          </div>
+
+          <div mat-menu-item>
+            <div class="icon-inline">
+              <div class="icon-inline--image"></div>
+              <div class="icon-inline-group">
+                <div class="icon-inline-group--number">1</div>
+                <div class="icon-inline-group--name">Nom du produit2</div>
+                <div class="icon-inline-group--price">398,00€</div>
+              </div>
+            </div>
+          </div>
+          <button mat-menu-item class="button-cart--validate" routerLink="/cart">Voir mon panier</button>
+        </mat-menu>
+        <a class="link" routerLink="/login">
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

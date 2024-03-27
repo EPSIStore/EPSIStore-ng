@@ -1,0 +1,156 @@
+@import '../../../styles';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  background: linear-gradient(90deg, rgba(39,39,39,1) 0%, rgba(24,24,24,1) 100%);
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      .logo {
+        background-image: url("../../../assets/images/logo.png");
+        background-size: cover;
+        width: 130px;
+        height: 50px;
+        margin: 0 48px 0 8px;
+      }
+      .link {
+        color: $color-white;
+        font-weight: $font-weight-regular;
+        text-decoration: none;
+        font-size: $font-size-xxl;
+        transition: 0.1s ease-in-out;
+        padding: 6px;
+        opacity: 0.7;
+      }
+
+      .active {
+        //font-weight: $font-weight-bold;
+        opacity: 1;
+        color: $color-white;
+      }
+
+    }
+    &--right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+
+      .searchBar {
+        height: 50px;
+        width: 300px;
+        border-radius: 8px;
+        padding: 0 16px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      .button-cart {
+        background-color: transparent !important;
+        .ng-fa-icon {
+          color: $color-white;
+          font-size: $font-size-xxxxl;
+        }
+      }
+
+      .mat-mdc-menu-content {
+        background-color: $color-grey;
+        .mat-mdc-menu-item {
+          .mat-mdc-menu-item-text {
+            .icon-inline {
+              color: $color-white;
+              font-size: $font-size-xxxxl;
+
+              &--image {
+
+              }
+
+              &-group {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                &--name {
+                  color: $color-white;
+                  font-size: $font-size-xxl;
+                  font-weight: $font-weight-regular;
+
+                  &--price {
+                    color: $color-cyan;
+                    font-size: $font-size-xxl;
+                    font-weight: $font-weight-bold;
+                  }
+                }
+
+                &--number {
+                  color: $color-white;
+                  font-size: $font-size-xxl;
+                  font-weight: $font-weight-bold;
+                }
+              }
+            }
+
+          }
+        }
+      }
+
+
+      .link {
+        color: $color-white;
+        font-weight: $font-weight-extra-light;
+        text-decoration: none;
+        font-size: $font-size-xxxxl2;
+      }
+    }
+  }
+}
+.cdk-overlay-container .cdk-overlay-backdrop .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane .mat-mdc-menu-panel .mat-mdc-menu-content {
+  background-color: $color-grey;
+  .mat-mdc-menu-item {
+    .mat-mdc-menu-item-text {
+      .icon-inline {
+        color: $color-white;
+        font-size: $font-size-xxxxl;
+
+        &--image {
+
+        }
+
+        &-group {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          &--name {
+            color: $color-white;
+            font-size: $font-size-xxl;
+            font-weight: $font-weight-regular;
+
+            &--price {
+              color: $color-cyan;
+              font-size: $font-size-xxl;
+              font-weight: $font-weight-bold;
+            }
+          }
+
+          &--number {
+            color: $color-white;
+            font-size: $font-size-xxl;
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+
+    }
+  }
+}
