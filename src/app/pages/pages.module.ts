@@ -7,13 +7,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShopComponent } from './shop/shop.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { CartPageComponent } from './cart-page/cart-page.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     NavbarComponent,
-    ShopComponent
+    ShopComponent,
+    CartPageComponent
   ],
   exports: [
     NavbarComponent
