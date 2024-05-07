@@ -6,15 +6,15 @@
     <form (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>Identifiant</mat-label>
-        <input matInput type="email" name="email" placeholder="Identifiant" [(ngModel)]="credentials.email">
+        <input matInput id="email" type="email" name="email" placeholder="Identifiant" [(ngModel)]="credentials.email">
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Mot de passe</mat-label>
-        <input matInput type="password" name="pwd" placeholder="Mot de passe" [(ngModel)]="credentials.pwd">
+        <input matInput id="password" type="password" name="pwd" placeholder="Mot de passe" [(ngModel)]="credentials.pwd">
       </mat-form-field>
 
-      <button type="submit">Connexion</button>
+      <button id="submit" type="submit">Connexion</button>
     </form>
   </div>
 </div>

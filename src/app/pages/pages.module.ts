@@ -7,12 +7,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShopComponent } from './shop/shop.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ShopComponent
+    ShopComponent,
+    TestComponent
   ],
   imports: [
     CommonModule,
