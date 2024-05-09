@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environments';
 import { User } from '../models/user.model';
-import { LocalStorageService } from './local-storage.service';
+import { CookieService } from 'ngx-cookie-service';
 import { Login } from '../models/login.model';
 import { tokenReceiver } from '../models/tokenreciever.model';
 
@@ -12,7 +12,7 @@ import { tokenReceiver } from '../models/tokenreciever.model';
 })
 export class LoginService {
 
-  constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
+  constructor(private http: HttpClient) { }
 
   login(body : Login){
     const httpOptions = {

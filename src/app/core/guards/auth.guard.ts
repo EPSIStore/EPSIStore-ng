@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { LocalStorageService } from '../services/local-storage.service';
+import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private localStorageService: LocalStorageService, private router: Router, private loginService: LoginService) {}
+  constructor(private cookieService: CookieService, private router: Router, private loginService: LoginService) {}
 
   private tokenExpired(token: string) {
     const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
@@ -18,10 +18,10 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(): boolean|Observable<boolean> {
-    const token = this.localStorageService.getItem('token');
+    const token = this.cookieService.get('token');
     if (token) {
       if(this.tokenExpired(token)){
-        const refToken = this.localStorageService.getItem('refToken');
+        const refToken = this.cookieService.get('refToken');
         if(refToken){
           if(this.tokenExpired(refToken)){
             this.router.navigate(['/login']); // Redirige vers la page de connexion si le token n'est pas présent

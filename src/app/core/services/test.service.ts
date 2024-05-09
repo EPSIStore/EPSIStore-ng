@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { LocalStorageService } from "./local-storage.service";
+import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
@@ -7,13 +7,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 })
 export class TestService {
 
-    constructor(private http: HttpClient, private localStorageService: LocalStorageService) { }
+    constructor(private http: HttpClient, private cookieService: CookieService) { }
 
     getEverybody(){
         const httpOptions = {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
-            'Authorization': 'Bearer ' + this.localStorageService.getItem("token"),
+            'Authorization': 'Bearer ' + this.cookieService.get("token"),
           })
         };
         return this.http.get<any>("/apitest/everybody", httpOptions);
@@ -24,7 +24,7 @@ export class TestService {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.localStorageService.getItem("token"),
+            'Authorization': 'Bearer ' + this.cookieService.get("token"),
           })
         };
         return this.http.get<any>("/apitest/role1", httpOptions);
@@ -35,7 +35,7 @@ export class TestService {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.localStorageService.getItem("token"),
+            'Authorization': 'Bearer ' + this.cookieService.get("token"),
           })
         };
         return this.http.get<any>("/apitest/role2", httpOptions);
@@ -46,7 +46,7 @@ export class TestService {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.localStorageService.getItem("token"),
+            'Authorization': 'Bearer ' + this.cookieService.get("token"),
           })
         };
         return this.http.get<any>("/apitest/admin", httpOptions);

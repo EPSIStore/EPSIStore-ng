@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LocalStorageService } from '../../core/services/local-storage.service';
+import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../../core/services/login.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { LoginService } from '../../core/services/login.service';
 })
 export class AuthorizeComponent {
 
-  constructor(private route: ActivatedRoute, private loginService: LoginService, private localStorage: LocalStorageService, private router : Router) {  }
+  constructor(private route: ActivatedRoute, private loginService: LoginService, private cookieService: CookieService, private router : Router) {  }
 
   ngOnInit(){
     this.route.queryParams
@@ -19,18 +19,18 @@ export class AuthorizeComponent {
       if(code != null){
         this.loginService.getToken(code).subscribe({
           next: (v) =>{
-            this.localStorage.setItem("token", v.access_token);
-            this.localStorage.setItem("refToken", v.refresh_token);
+            this.cookieService.set("token", v.access_token);
+            this.cookieService.set("refToken", v.refresh_token);
             this.router.navigate(["/home"]);
           }
         });
       }
       else{
-        const refToken = this.localStorage.getItem('refToken');
+        const refToken = this.cookieService.get('refToken');
         this.loginService.refreshToken(refToken).subscribe({
           next: (v) =>{
-            this.localStorage.setItem("token", v.access_token);
-            this.localStorage.setItem("refToken", v.refresh_token);
+            this.cookieService.set("token", v.access_token);
+            this.cookieService.set("refToken", v.refresh_token);
             this.router.navigate(["/home"]);
           },
           error: (e) =>{
