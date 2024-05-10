@@ -51,4 +51,15 @@ export class TestService {
         };
         return this.http.get<any>("/apitest/admin", httpOptions);
     }
+
+    getUser(){
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.cookieService.get("token"),
+          })
+        };
+        return this.http.get<any>("/apitest/user", httpOptions);
+    }
 }

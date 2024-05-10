@@ -11,6 +11,7 @@ export class TestComponent {
   role1 : String = "waiting response";
   role2 : String = "waiting response";
   admin : String = "waiting response";
+  user : String = "waiting response";
 
   constructor(private service : TestService){}
 
@@ -46,6 +47,14 @@ export class TestComponent {
       },
       next : (v) => {
         this.admin = v.body;
+      }
+    });
+    this.service.getUser().subscribe({
+      error : (e) => {
+        this.user = "Error";
+      },
+      next : (v) => {
+        this.user = v.body;
       }
     });
   }
