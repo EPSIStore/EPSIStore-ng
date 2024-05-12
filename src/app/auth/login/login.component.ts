@@ -18,7 +18,6 @@ export class LoginComponent {
   constructor(private loginService: LoginService, private router: Router) {}
 
   onSubmit() {
-    console.log(this.credentials)
     this.loginService.login(this.credentials)
     .subscribe({
       error: (e) => {

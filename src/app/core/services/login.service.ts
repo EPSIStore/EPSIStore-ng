@@ -58,4 +58,11 @@ export class LoginService {
     body.set('redirect_uri', 'https://127.0.0.1:4200/authorized');
     return this.http.post<tokenReceiver>(`/api/oauth2/token`, body, httpOptions);
   }
+
+  anonLogin(){
+    return this.login({
+      email: "anon",
+      pwd: "anon"
+    });
+  }
 }
