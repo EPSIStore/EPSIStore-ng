@@ -22,6 +22,17 @@ export class LoginService {
     return this.http.post<any>(`/api/auth/login`, body, httpOptions);
   }
 
+  register(body : Login){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa('client1:myClientSecretValue')
+      })
+    };
+    return this.http.post<any>(`/api/auth/register`, body, httpOptions);
+  }
+
   getToken(code : string): Observable<TokenReceiver> {
     const httpOptions = {
       headers: new HttpHeaders({

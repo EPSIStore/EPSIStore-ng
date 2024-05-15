@@ -9,11 +9,15 @@ import { AuthRoutingModule } from './auth-routing';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthorizeComponent } from './authorize/authorize.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    AuthorizeComponent
+    AuthorizeComponent,
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

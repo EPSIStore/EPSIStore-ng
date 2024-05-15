@@ -157,4 +157,12 @@ export class ProfileComponent {
       this.router.navigate(["/profile"]);
     });
   }
+
+  ToAdminMenu(){
+    this.router.navigate(["/admin-menu"]);
+  }
+
+  LogOut(){
+    this.router.navigate(["/logout"]);
+  }
 }

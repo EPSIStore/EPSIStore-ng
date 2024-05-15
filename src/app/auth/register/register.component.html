@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card-container">
+      <div class="logo-container">
+        <img class="logo" src="../../../assets/images/logo.png" alt="Logo">
+      </div>
+      <form (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Adresse email</mat-label>
+          <input matInput id="email" type="email" name="email" placeholder="Adresse email" [(ngModel)]="credentials.email">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput id="password" type="password" name="pwd" placeholder="Mot de passe" [(ngModel)]="credentials.pwd">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Repetez le mot de passe</mat-label>
+          <input matInput id="password-repeat" type="password" name="repeatpwd" placeholder="Repetez le mot de passe" [(ngModel)]="credentials.repeatpwd">
+        </mat-form-field>
+  
+        <button id="submit" type="submit">Inscription</button>
+        <br/>
+        <button type="button" (click)="ToLogin()">Se connecter</button>
+      </form>
+    </div>
+  </div>
+  

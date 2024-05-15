@@ -46,6 +46,13 @@
         <mat-progress-bar [mode]="'determinate'" [value]="fidelityPoints / maxFidelityPoints * 100"></mat-progress-bar>
         <button (click)="ToFidelity()">Récompenses</button>
     </div>
+    <div id="LogOutDivProfile">
+        <button (click)="LogOut()">Se deconnecter</button>
+    </div>
+
+    <div *ngIf="this.tokenService.isAdmin()">
+        <button (click)="ToAdminMenu()">Admin menu</button>
+    </div>
 </div>
 <div *ngIf="error && !this.tokenService.isAnon()">
     <p>An error has occured, please try to log in again.</p>
