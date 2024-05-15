@@ -1,0 +1,52 @@
+<div *ngIf="this.tokenService.isAnon()">
+    <p>You must be logged in to see your profile.</p>
+</div>
+<div *ngIf="!error && fidelity && !this.tokenService.isAnon()">
+    <ul>
+        <li *ngFor="let reward of fidelityRewards">{{reward.reward}} : {{reward.fidelityPoints}} points</li>
+    </ul>
+    <div id="FidelityPointsDivProfile">
+        <p>Points de fidelité : {{fidelityPoints}} / {{maxFidelityPoints}}</p>
+        <mat-progress-bar [mode]="'determinate'" [value]="fidelityPoints / maxFidelityPoints * 100"></mat-progress-bar>
+        <button (click)="Back()">Retourner au profil</button>
+    </div>
+    <div>
+        <h3>Historique des points</h3>
+        <ul>
+            <li *ngFor="let history of fidelityHistory">{{this.DateModelFromChange(history).toString()}} : {{history.content}} : {{history.fidelityPoints}} points</li>
+        </ul>
+    </div>
+</div>
+<div *ngIf="!error && ( editUsername || editEmail || editPassword ) && !fidelity && !this.tokenService.isAnon()">
+    <p *ngIf="editMessage != ''">{{editMessage}}</p>
+    <form (submit)="Edit()">
+        <input *ngIf="editUsername" id="newUsername" name="username" type="text" placeholder="new username" [(ngModel)]="edit.username" />
+        <input *ngIf="editEmail" id="newEmail" name="email" type="email" placeholder="new email" [(ngModel)]="edit.email" />
+        <input *ngIf="editPassword" id="newPassword" name="password" type="password" placeholder="new password" [(ngModel)]="edit.password" />
+        <input id="currentPassword" type="password" name="oldPassword" placeholder="current password" [(ngModel)]="edit.oldPassword" />
+        <button type="submit">Valider</button>
+    </form>
+    <button type="button" (click)="Back()">Retourner au profil</button>
+</div>
+<div *ngIf="!error && !editEmail && !editUsername && !editPassword && !fidelity && !this.tokenService.isAnon()">
+    <div id="UsernameDivProfile" class="ProfileDiv">
+        <p>Nom d'utilisateur : {{username}}</p>
+        <button (click)="ChangeUsername()">Changer</button>
+    </div>
+    <div id="EmailDivProfile" class="ProfileDiv">
+        <p>Adresse Email : {{email}}</p>
+        <button (click)="ChangeEmail()">Changer</button>
+    </div>
+    <div id="PasswordDivProfile" class="ProfileDiv">
+        <p>Mot de passe : ************</p>
+        <button (click)="ChangePassword()">Changer</button>
+    </div>
+    <div id="FidelityPointsDivProfile">
+        <p>Points de fidelité : {{fidelityPoints}} / {{maxFidelityPoints}}</p>
+        <mat-progress-bar [mode]="'determinate'" [value]="fidelityPoints / maxFidelityPoints * 100"></mat-progress-bar>
+        <button (click)="ToFidelity()">Récompenses</button>
+    </div>
+</div>
+<div *ngIf="error && !this.tokenService.isAnon()">
+    <p>An error has occured, please try to log in again.</p>
+</div>

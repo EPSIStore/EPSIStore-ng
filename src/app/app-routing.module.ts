@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { AuthorizeComponent } from './auth/authorize/authorize.component';
 import { TestComponent } from './pages/test/test.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'authorized', component: AuthorizeComponent},
   {path: 'test', component: TestComponent},
+  {path: 'profile', component: ProfileComponent},
 ];
 
 

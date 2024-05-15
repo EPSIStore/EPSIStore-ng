@@ -36,9 +36,16 @@
             </div>
             <button mat-menu-item class="button-cart--validate" routerLink="/cart">Voir mon panier</button>
           </mat-menu>
-          <a class="link" routerLink="/login">
-            <fa-icon [icon]="faUser"></fa-icon>
-          </a>
+          <div *ngIf="this.tokenService.isAnon()">
+            <a class="link" routerLink="/login">
+              <fa-icon [icon]="faUser"></fa-icon>
+            </a>
+          </div>
+          <div *ngIf="!this.tokenService.isAnon()">
+            <a class="link" routerLink="/profile">
+              <fa-icon [icon]="faUser"></fa-icon>
+            </a>
+          </div>
         </div>
       </div>
     </div>

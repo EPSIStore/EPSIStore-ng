@@ -24,7 +24,7 @@ export class LoginComponent {
         console.log(e);
       },
       next: (v) => {
-        document.location.href = "https://127.0.0.1:4200/api/oauth2/authorize?response_type=code&client_id=client1&redirect_uri=https://127.0.0.1:4200/authorized&scope=openid read";
+        document.location.href = "https://127.0.0.1:4200/api/auth/oauth2/authorize?response_type=code&client_id=client1&redirect_uri=https://127.0.0.1:4200/authorized&scope=openid read";
       }
     });
   }

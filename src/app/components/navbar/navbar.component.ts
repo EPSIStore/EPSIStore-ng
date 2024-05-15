@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { TokenService } from '../../core/services/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,10 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   protected readonly faShoppingCart = faShoppingCart;
   protected readonly faUser = faUser;
-  constructor(private router:Router) { }
+
+  link = "/login";
+
+  constructor(private router:Router, public tokenService: TokenService) { }
 
   isLoginPage() {
     return this.router.url === '/login';

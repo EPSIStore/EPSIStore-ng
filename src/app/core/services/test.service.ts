@@ -1,22 +1,22 @@
 import { Injectable } from "@angular/core";
-import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { TokenService } from "./token.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class TestService {
 
-    constructor(private http: HttpClient, private cookieService: CookieService) { }
+    constructor(private http: HttpClient, private tokenService: TokenService) { }
 
     getEverybody(){
         const httpOptions = {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
-            'Authorization': 'Bearer ' + this.cookieService.get("token"),
+            'Authorization': 'Bearer ' + this.tokenService.getToken(),
           })
         };
-        return this.http.get<any>("/apitest/everybody", httpOptions);
+        return this.http.get<any>("/api/test/everybody", httpOptions);
     }
 
     getRole1(){
@@ -24,10 +24,10 @@ export class TestService {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.cookieService.get("token"),
+            'Authorization': 'Bearer ' + this.tokenService.getToken(),
           })
         };
-        return this.http.get<any>("/apitest/role1", httpOptions);
+        return this.http.get<any>("/api/test/role1", httpOptions);
     }
 
     getRole2(){
@@ -35,10 +35,10 @@ export class TestService {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.cookieService.get("token"),
+            'Authorization': 'Bearer ' + this.tokenService.getToken(),
           })
         };
-        return this.http.get<any>("/apitest/role2", httpOptions);
+        return this.http.get<any>("/api/test/role2", httpOptions);
     }
 
     getAdmin(){
@@ -46,10 +46,10 @@ export class TestService {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.cookieService.get("token"),
+            'Authorization': 'Bearer ' + this.tokenService.getToken(),
           })
         };
-        return this.http.get<any>("/apitest/admin", httpOptions);
+        return this.http.get<any>("/api/test/admin", httpOptions);
     }
 
     getUser(){
@@ -57,9 +57,9 @@ export class TestService {
           headers: new HttpHeaders({
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.cookieService.get("token"),
+            'Authorization': 'Bearer ' + this.tokenService.getToken(),
           })
         };
-        return this.http.get<any>("/apitest/user", httpOptions);
+        return this.http.get<any>("/api/test/user", httpOptions);
     }
 }

@@ -1,16 +1,23 @@
 [
   {
-    "context": ["/apitest"],
-    "target": "http://localhost:8085",
-    "secure": false,
-    "changeOrigin": true,
-    "pathRewrite": {"^/apitest" : ""}
-  },
-  {
-    "context": ["/api"],
+    "context": ["/api/auth"],
     "target": "http://localhost:8080",
     "secure": false,
     "changeOrigin": true,
-    "pathRewrite": {"^/api" : ""}
+    "pathRewrite": {"^/api/auth" : ""}
+  },
+  {
+    "context": ["/api/customer"],
+    "target": "http://localhost:8085",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {"^/api/customer" : ""}
+  },
+  {
+    "context": ["/api/test"],
+    "target": "http://localhost:8085",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {"^/api/test" : ""}
   }
 ]

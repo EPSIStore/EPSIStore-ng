@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from './core/services/login.service';
-import { CookieService } from 'ngx-cookie-service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { TokenService } from './core/services/token.service';
 
 @Component({
   selector: 'app-root',
@@ -11,31 +11,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent {
   title = 'EPSIStore-NG';
 
-  private tokenExpired(token: string) {
-    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
-    return (Math.floor((new Date).getTime() / 1000)) >= expiry;
-  }
-
-  constructor(private loginService : LoginService, private cookieService: CookieService, private router : Router){}
+  constructor(private loginService : LoginService, private router : Router, private tokenService : TokenService){}
 
   ngOnInit(){
-    var token = this.cookieService.get("token");
-    var refToken = this.cookieService.get("refToken");
-    if(token == "" || this.tokenExpired(token)){
-      if(refToken == "" || this.tokenExpired(refToken)){
-        this.loginService.anonLogin().subscribe({
-          error: (e) => {
-            console.log(e);
-          },
-          next: (v) => {
-            document.location.href = "https://127.0.0.1:4200/api/oauth2/authorize?response_type=code&client_id=client1&redirect_uri=https://127.0.0.1:4200/authorized&scope=openid read";
-          },
-        });
-      }
-      else{
+    const url = window.location.href.split('?')[0].split('/').pop();
+    if(url != "authorized" && url != "login"){
+      var token = this.tokenService.getToken();
+      if(token == "" || this.tokenService.tokenExpired(token)){
         this.router.navigate(["/authorized"]);
       }
     }
-    
   }
 }
