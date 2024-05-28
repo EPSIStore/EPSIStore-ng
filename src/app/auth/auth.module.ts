@@ -8,10 +8,12 @@ import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthorizeComponent } from './authorize/authorize.component';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    AuthorizeComponent
   ],
   imports: [
     CommonModule,

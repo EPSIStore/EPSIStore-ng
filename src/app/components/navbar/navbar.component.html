@@ -3,34 +3,12 @@
     <div class="navbar-container">
       <div class="navbar-container--left">
         <div class="logo"></div>
-        <a
-          class="link"
-          routerLink="/home"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          >Accueil</a
-        >
-        <a
-          class="link"
-          routerLink="/shop"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          >Boutique</a
-        >
-        <a
-          class="link"
-          routerLink="/contact"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-          >Contact</a
-        >
+        <a class="link" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Accueil</a>
+        <a class="link" routerLink="/shop" routerLinkActive="active" ariaCurrentWhenActive="page">Boutique</a>
+        <a class="link" routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">Contact</a>
       </div>
       <div class="navbar-container--right">
-        <input
-          class="searchBar"
-          type="text"
-          placeholder="Rechercher un produit"
-        />
+        <input class="searchBar" type="text" placeholder="Rechercher un produit" />
         <button class="button-cart" mat-flat-button [matMenuTriggerFor]="menu">
           <fa-icon [icon]="faShoppingCart"></fa-icon>
           <span class="cart-items-number">{{ cartItemCount }}</span>
@@ -43,33 +21,22 @@
                 <div class="icon-inline-group--number">{{ item.quantity }}</div>
                 <div class="icon-inline-group--name">{{ item.name }}</div>
                 <div class="icon-inline-group--price">{{ item.price }}</div>
-                <button title="Remove from cart"
-                  class="button-remove-from-cart"
-                  (click)="removeItemFromCart(item)"
-                >
+                <button title="Remove from cart" class="button-remove-from-cart" (click)="removeItemFromCart(item)">
 
                   <fa-icon [icon]="faTrash"></fa-icon>
 
                 </button>
               </div>
             </div>
-          </div>
 
-          <button
-            mat-menu-item
-            class="button-cart--validate"
-            routerLink="/cart"
-          >
-            Voir mon panier
-          </button>
-        </mat-menu>
-        <button class="button-add-to-cart" (click)="addItemToCart()">
-          Ajouter au panier
-        </button>
-        <a class="link" routerLink="/login">
-          <fa-icon [icon]="faUser"></fa-icon>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+            <button mat-menu-item class="button-cart--validate" routerLink="/cart">
+              Voir mon panier
+            </button>
+
+            <button class="button-add-to-cart" (click)="addItemToCart()">
+              Ajouter au panier
+            </button>
+            <a class="link" routerLink="/login">
+              <fa-icon [icon]="faUser"></fa-icon>
+            </a>
+          </div>

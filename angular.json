@@ -74,6 +74,12 @@
               "browserTarget": "EPSIStore-NG:build:development"
             }
           },
+          "options": {
+            "proxyConfig": "src/proxy.conf.json",
+            "ssl": true,
+            "sslKey": "./localhost+1-key.pem",
+            "sslCert": "./localhost+1.pem"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
