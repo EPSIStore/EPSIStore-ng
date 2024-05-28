@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="shopping-cart">
+      <h1>Votre Panier</h1>
+      <div class="menu-items">
+        <div *ngFor="let item of cartItems" mat-menu-item>
+          <div class="icon-inline">
+            <div class="icon-inline--image"></div>
+            <div class="icon-inline-group">
+              <div class="icon-inline-group--number">{{ item.quantity }}</div>
+              <div class="icon-inline-group--name">{{ item.name }}</div>
+              <div class="icon-inline-group--price">{{ item.price | currency:'EUR' }}</div>
+              <button title="Remove from cart" class="button-remove-from-cart" (click)="removeItemFromCart(item)">
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="button-add-to-cart" (click)="addItemToCart()">Ajouter un élément test au panier</button>
+    </div>
+  <div class="order-info">
+    <h1>Information de Commande</h1>
+    <form>
+      <label for="firstname">Prénom</label>
+      <input type="text" id="firstname" name="firstname" />
+
+      <label for="lastname">Nom</label>
+      <input type="text" id="lastname" name="lastname" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" />
+
+      <label for="phone">Numéro de téléphone</label>
+      <input type="text" id="phone" name="phone" />
+
+      <label for="city">Ville</label>
+      <input type="text" id="city" name="city" />
+
+      <label for="street">Numéro de rue et Rue</label>
+      <input type="text" id="street" name="street" />
+
+      <label for="postcode">Code postal</label>
+      <input type="text" id="postcode" name="postcode" />
+
+      <button type="submit">Mode de paiement</button>
+    </form>
+  </div>
+</div>
