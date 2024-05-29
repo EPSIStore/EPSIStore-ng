@@ -1,22 +1,17 @@
-import { Component, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
-import {
-  faShoppingCart,
-  faUser,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
 import { CookieService } from '../../cookie.service';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-cart-page',
+  templateUrl: './cart-page.component.html',
+  styleUrls: ['./cart-page.component.scss'],
 })
-export class NavbarComponent {
-  protected readonly faShoppingCart = faShoppingCart;
-  protected readonly faUser = faUser;
-  protected readonly faTrash = faTrash;
-  cartItemCount: number = 0;
+export class CartPageComponent implements OnInit {
   cartItems: any[] = [];
+  protected readonly faTrash = faTrash;
+
   constructor(
     private cookieService: CookieService,
     private cdr: ChangeDetectorRef
@@ -40,8 +35,11 @@ export class NavbarComponent {
       quantity: 1,
       price: 9.99,
     };
-    this.cartItems.push(newItem);
+    console.log('Adding item', newItem);
+    this.cartItems = [...this.cartItems, newItem];
+    console.log('Cart items', this.cartItems);
     this.updateCartInCookies();
+    this.cdr.detectChanges();
   }
 
   removeItemFromCart(item: any) {
@@ -49,6 +47,7 @@ export class NavbarComponent {
     if (index !== -1) {
       this.cartItems.splice(index, 1);
       this.updateCartInCookies();
+      this.cdr.detectChanges();
     }
   }
 

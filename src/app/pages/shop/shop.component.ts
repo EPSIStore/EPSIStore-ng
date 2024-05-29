@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PriceService } from '../../core/services/price.service';
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit{
+  produits: any;
 
+  constructor(private priceService: PriceService) {}
+
+  ngOnInit(): void {
+      this.produits = this.priceService.getProducts()   
+  }
+  
   products = [
     {
       name: 'Produit 1',

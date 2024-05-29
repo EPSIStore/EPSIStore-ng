@@ -5,19 +5,23 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ShopComponent } from './shop/shop.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ShopComponent
+    ShopComponent,
+    CartPageComponent
   ],
   imports: [
-    CommonModule,
     PagesRoutingModule,
-    MatButtonModule,
-    MatMenuModule
+    FontAwesomeModule,
+    CommonModule
   ]
 })
 export class PagesModule { }

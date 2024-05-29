@@ -18,13 +18,15 @@ export class LoginComponent {
   constructor(private loginService: LoginService, private router: Router) {}
 
   onSubmit() {
-    console.log(this.credentials)
-    this.loginService.postLogin(this.credentials).subscribe(
-      (response) => {
-        console.log('Connexion réussie', response);
-        this.router.navigate(['/home']);
+    this.loginService.login(this.credentials)
+    .subscribe({
+      error: (e) => {
+        console.log(e);
+      },
+      next: (v) => {
+        document.location.href = "https://127.0.0.1:4200/api/oauth2/authorize?response_type=code&client_id=client1&redirect_uri=https://127.0.0.1:4200/authorized&scope=openid read";
       }
-    )
+    });
   }
 
 }
