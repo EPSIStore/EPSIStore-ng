@@ -1,0 +1,79 @@
+/* ICON INLINE */
+@mixin icon_inline {
+  align-items: center;
+  background:none;
+  border:0;
+  color:$black;
+  display: flex;
+  border-radius:0;
+  box-shadow: none;
+  @include font_medium;
+  font-size: $font-size-base * 0.875;
+  justify-content: left;
+  line-height: 1;
+  margin:0;
+  padding:0 0 5px;
+  @include txt_align(left);
+  text-decoration: none;
+  text-transform: none;
+  vertical-align: inherit;
+  width:100%;
+}
+.icon-inline {
+  @include icon_inline;
+  $this:&;
+  &--image {
+    flex-shrink: 0;
+  }
+  &--text {
+    padding: 0 0 0 8px;
+    &_title {
+      @include font-heavy;
+      padding: 0 0 3px 0;
+    }
+    &_text {
+      font-size:0.929em;
+      color:$black-65;
+    }
+  }
+  &.multiple {
+    align-items: start;
+    #{$this} {
+      &--image {
+        margin-top:5px;
+      }
+      &--text {
+        .colored {
+          color:$fibre-v;
+          font-weight:700;
+          padding-bottom:8px;
+        }
+      }
+    }
+  }
+  &.single {
+    #{$this} {
+      &--image {
+        margin:0;
+      }
+      &--text {
+        .colored {
+          color:$fibre-v;
+          font-weight:700;
+          padding-bottom:8px;
+        }
+      }
+    }
+  }
+  &.alternate {
+    #{$this} {
+      &--image {
+        order:2;
+        margin: 0
+      }
+      &--text {
+        padding: 0 8px 0 0;
+      }
+    }
+  }
+}

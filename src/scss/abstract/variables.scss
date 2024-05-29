@@ -1,0 +1,26 @@
+$delay: 0.3s;
+$font-size-base : 16px;
+$line-height-base: 1.15;
+$pourcentage: 15%;
+$shadow_white: 0 -8px 20px 5px rgba(255, 255, 255, 0.8);
+$shadow_default: 10px 10px 40px rgba(0, 0, 0, 0.1);
+$shadow_default_emphasis: 10px 10px 40px rgba(0, 0, 0, 0.3);
+$shadow_small: 10px 10px 10px rgba(1, 86, 122, 0.05);
+$shadow_bottom: 0 8px 15px 0 rgba(0, 0, 0, 0.2);
+$transition: $delay;
+$gradient_angle_product: 115deg;
+$base: $font-size-base;
+$lh: calc(4px + 2ex);
+
+/* BASE 12 COLUMNS */
+$w-1: calc((100% / 12) * 1);
+$w-2: calc((100% / 12) * 2);
+$w-3: calc((100% / 12) * 3);
+$w-4: calc((100% / 12) * 4);
+$w-5: calc((100% / 12) * 5);
+$w-6: calc((100% / 12) * 6);
+$w-7: calc((100% / 12) * 7);
+$w-8: calc((100% / 12) * 8);
+$w-9: calc((100% / 12) * 9);
+$w-10: calc((100% / 12) * 10);
+$w-11: calc((100% / 12) * 11);

@@ -1,0 +1,43 @@
+.paragraph {
+    $lh :calc(2ex + 4px);
+    &-01 {
+        $size: $base * 1.25; // 20px
+        color: $black;
+        @include font_light;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $base;
+        }
+    }
+    &-02 {
+        $size: $base; // 16px
+        color: $black;
+        @include font_light;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $base * 0.875;
+        }
+    }
+    &-03 {
+        $size: $base * 0.875; // 14px
+        color: $black;
+        @include font_light;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $base * 0.75;
+        }
+    }
+    &-04 {
+        $size: $base * 0.75; // 12px
+        color: $black;
+        @include font_light;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $size * 0.917;
+        }
+    }
+}

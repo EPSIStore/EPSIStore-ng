@@ -1,0 +1,161 @@
+ @import "../abstracts/variables";
+/* MIXINS */
+ @mixin font_thin($important:false) {
+     @if $important{
+         font-family:'font-thin'!important;
+     }@else{
+         font-family:'font-thin';
+     }
+ }
+ @mixin font_extra_light($important:false) {
+     @if $important{
+         font-family:'font-extra-light'!important;
+     }@else{
+         font-family:'font-extra-light';
+     }
+ }
+@mixin font_light($important:false) {
+    @if $important{
+        font-family:'font-light'!important;
+    }@else{
+        font-family:'font-light';
+    }
+}
+@mixin font_medium($important:false) {
+    @if $important{
+        font-family:'font-medium'!important;
+    }@else{
+        font-family:'font-medium';
+    }
+}
+@mixin font_heavy($important:false) {
+    @if $important{
+        font-family:'font-heavy'!important;
+    }@else{
+        font-family:'font-heavy';
+    }
+}
+@mixin font_nncom($important:false) {
+    @if $important{
+        font-family:'nncom'!important;
+    }@else{
+        font-family:'nncom';
+    }
+}
+@mixin transition {
+  transition: all $transition;
+}
+@mixin vertical_ib {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+@mixin h_lh($height) {
+  height:$height;
+  line-height: $height;
+}
+@mixin border($width,$color) {
+  border:$width solid $color;
+}
+@mixin txt_align($direction,$important:false) {
+  @if $important{
+    text-align:$direction!important;
+  }@else{
+    text-align:$direction;
+  }
+}
+@mixin linear_gradient($degree:$gradient_angle_product,$from:$black,$from_percent:12%,$to:transparent,$to_percent:85%) {
+  background: linear-gradient($degree, $from $from_percent, $to $to_percent);
+}
+@mixin link($color) {
+  &,
+  &:active,
+  &:focus,
+  &:visited,
+  &:hover {
+      background: none;
+      border: 0;
+      box-shadow: none;
+    color: $color;
+    display: inline-block;
+      margin: 0;
+      padding: 0;
+    @include transition;
+  }
+  &:hover {
+    color:$color;
+    @include transition;
+    text-decoration: underline;
+  }
+  &.underlined {
+      text-decoration: underline;
+      &:hover {
+          text-decoration: underline;
+      }
+  }
+  .fas,
+  img {
+    vertical-align: -2px;
+  }
+}
+@mixin flex($vertical:false,$display:false,$align:false) {
+    @if $vertical{
+        align-items: $vertical;
+    }@else{
+        align-items: center;
+    }
+    @if $display{
+        display: $display;
+    }@else{
+        display: flex;
+    }
+    @if $align{
+        justify-content: $align;
+    }@else{
+        justify-content: space-between;
+    }
+    flex-wrap: wrap;
+}
+@mixin scale($value) {
+    transform: scale($value);
+}
+@mixin hide {
+    /* hide without js JS problems =) */
+     display: inline-block;
+     height: 0;
+     margin: 0;
+     overflow: hidden;
+     padding: 0;
+     width: 100%;
+     position: absolute;
+}
+@mixin show {
+     height: auto;
+     overflow: inherit;
+     position: static;
+}
+@mixin shrink($value) {
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: $value;
+}
+@mixin no_bold {
+    @include font-heavy;
+    font-weight: 400;
+}
+@mixin focus-visible() {
+    border: 1px solid $bleu-hyperlien!important;
+    isolation: isolate;
+    outline: none!important;
+    box-shadow: 0 0 4px $bleu-hyperlien;
+    transition: inherit!important;
+    z-index: 0;
+}
+
+@mixin black-to-blue {
+    filter: invert(50%) sepia(94%) saturate(3277%) hue-rotate(203deg) brightness(94%) contrast(89%);
+}
+
+@mixin black-to-red {
+    filter: invert(15%) sepia(80%) saturate(3723%) hue-rotate(353deg) brightness(98%) contrast(96%);
+}

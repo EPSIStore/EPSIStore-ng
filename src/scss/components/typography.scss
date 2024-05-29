@@ -1,0 +1,80 @@
+@mixin text_base {
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  text-shadow: none;
+}
+@mixin title {
+  @include text_base;
+  background:none;
+  color:$black-90;
+  display: block;
+  border:0;
+  border-radius:0;
+  box-shadow: none;
+  @include font_heavy;
+  font-size: $font-size-base * 1.875;
+  @media(max-width:991px) {
+    font-size: $font-size-base * 1.4;
+  }
+}
+%title {
+  @include title;
+}
+/* TEXT */
+.text {
+  @include text_base;
+  font-size: $font-size-base;
+  &-big {
+    @include text_base;
+    @include font_heavy;
+    font-size: $font-size-base * 3;
+    line-height: 1.1;
+    @media(max-width:991px) {
+      font-size: $font-size-base * 2;
+    }
+  }
+  &-medium {
+    @include text_base;
+    @include font_medium;
+    font-size: $font-size-base * 2.25;
+    @media(max-width:991px) {
+      font-size: $font-size-base * 1.5;
+    }
+  }
+  &-small {
+    @include text_base;
+    @include font_light;
+    font-size: $font-size-base * 0.75;
+  }
+  &.emphasis {
+    color: $black-75;
+    @include font_medium;
+    font-size:$font-size-base * 1.188;
+    line-height:1.1;
+  }
+  /* TITLES */
+  &--title{
+    @include title;
+    &_emphasis {
+      @extend %title;
+      font-size:$font-size-base * 2.25;
+      line-height:1.1;
+      @media(max-width:991px) {
+        font-size: $font-size-base * 1.75;
+      }
+    }
+  }
+  &--subtitle {
+    @extend %title;
+    font-size:$font-size-base * 1.25;
+  }
+}
+  /* LINK */
+a {
+  &.anchor {
+    @include link($salmon);
+  }
+}

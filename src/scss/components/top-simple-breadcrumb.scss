@@ -1,0 +1,45 @@
+.under-navigation {
+    background:$white;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    @media(max-width:767px) {
+        display:none;
+    }
+    &-list {
+        display:inline-block;
+        @include h_lh(60px);
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        width: 100%;
+    }
+    &-item {
+        display:inline-block;
+        @include  font_medium;
+        font-size:0.85em;
+        line-height:1;
+        vertical-align: middle;
+        .link{
+            color:$black;
+            line-height:1;
+            padding-right:10px;
+            @include transition;
+            &:hover {
+                color: $fibre-i;
+                text-decoration: underline;
+            }
+            .fa {
+                color:$black-55;
+                padding-right:10px;
+                vertical-align:1px;
+            }
+            &.not-linked{
+                color: $fibre-i;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+.heading {
+    $lh :calc(2ex + 4px);
+    &-01 {
+        $size: $base * 3; // 48px
+        color: $black;
+        @include font_heavy;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $size * 0.75;
+        }
+        @media(max-width: 479px) {
+            font-size: $size * 0.6;
+        }
+        &.emphasis {
+            $size: $base * 3.5; // 56px
+            font-size: $size;
+            line-height: 1.143;
+            @media(max-width: 767px) {
+                font-size: $size * 0.75;
+            }
+            @media(max-width: 479px) {
+                font-size: $size * 0.55;
+            }
+        }
+    }
+    &-02 {
+        $size: $base * 2.5; // 40px
+        color: $black;
+        @include font_heavy;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $size * 0.8;
+        }
+        @media(max-width: 479px) {
+            font-size: $size * 0.65;
+        }
+    }
+    &-03 {
+        $size: $base * 2;
+        color: $black;
+        @include font_heavy;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $size * 0.875;
+        }
+        @media(max-width: 479px) {
+            font-size: $size * 0.7375;
+        }
+    }
+    &-04 {
+        $size: $base * 1.5;
+        color: $black;
+        @include font_heavy;
+        font-size: $size;
+        line-height: $lh;
+        @media(max-width: 767px) {
+            font-size: $size * 0.875;
+        }
+        @media(max-width: 479px) {
+            font-size: $size * 0.8375;
+        }
+        &.emphasis {
+            $size: $base * 1.75;
+            font-size: $size;
+            line-height: $lh;
+            @media(max-width: 767px) {
+                font-size: $size * 0.875;
+            }
+            @media(max-width: 479px) {
+                font-size: $size * 0.786;
+            }
+        }
+    }
+}
