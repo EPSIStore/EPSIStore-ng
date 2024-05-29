@@ -1,1 +1,17 @@
-<p>shop works!</p>
+<div class="container">
+    <div class="product-list">
+        <div class="product" *ngFor="let product of products; let i = index">
+            <img [src]="product.image" [alt]="product.name">
+            <div class="product-details">
+                <div class="details">
+                    <h2>{{ product.name }}</h2>
+                    <p>{{ product.description }}</p>
+                </div>
+                <span class="price">{{ product.price }} €</span>
+                <div class="btn">
+                    <button class="buy-button">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
